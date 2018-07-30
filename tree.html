@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>资源树</title>
+	<style type="text/css">
+		body{
+			background: #f7f7f7;
+		}
+.tree{
+	background-color: #FFFFFF;
+	min-height: 500px;
+}
+.treeTitle{
+	position: relative;
+	height:40px;
+	background-color:#f5f5f5;
+	line-height: 40px;
+	color: #438eb9;	
+}
+.treeTitle img{
+	position: absolute;
+	top: 8px;
+	left:10px;
+}
+.treeTitleText{
+	padding-left: 38px;
+}
+.treeCont{
+	padding-left: 20px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	background: url('../imgs/images/wangluotu.png') repeat;
+	min-height: 460px;
+}
+.treeLevlCont{
+	padding-left: 118px;
+}
+.treeItem .itemTitle .titleContent{
+	display: inline-block;
+	vertical-align: middle;
+}
+.treeItem[level_index="0"]>.itemTitle .titleContent{
+	padding-top:0;
+}
+.itemLevelSubTitle{
+	display:inline-block;
+}
+.itemTitle{
+	position: relative;
+	padding-bottom: 45px;
+}
+.itemIcon{
+	height: 16px;
+	width: 16px;
+	display: inline-block;
+	cursor: pointer;
+	box-sizing: border-box;
+	vertical-align: middle;
+	position: relative;
+}
+.itemLevelTitle{
+    display: inline-block;
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+    width: 158px;
+    background-color: #199ed8;
+    border-radius: 5px;
+    text-align: center;
+    color: #FFFFFF;
+}
+.subTitleCont{
+    height: 26px;
+    line-height: 26px;
+    vertical-align: middle;
+    width: 158px;
+    background-color: #eeeeee;
+    border-radius: 5px;
+    text-align: center;
+    color: #666666;	
+    display: inline-block;
+}
+.treeItem[level_index="0"]>.itemTitle .subTitleCont{
+	top:0;
+}
+.hide{
+	display: none;
+}
+.itemShow{
+	background: url('../imgs/images/open.png') no-repeat;
+	background-size: 100% 100%;
+	vertical-align: middle;
+}
+.treeItem[level_index="0"]>.itemTitle .itemShow{
+	top: 7px;
+    vertical-align: top;
+}
+.itemHide{
+	background: url('../imgs/images/hide1.png') no-repeat;
+	background-size: 100% 100%;
+	vertical-align: middle;
+}
+.treeItem[level_index="0"]>.itemTitle .itemHide{
+	top: 7px;
+    vertical-align: top;
+}
+.treeItem{
+	position: relative;
+}
+.treeItem{
+	margin-left: 10px;
+}
+.treeItem.treeHeightLine::after{
+	content: '';
+	position: absolute;
+	top:20px;
+	left: 7px;
+	width: 1px;
+	height: calc(100% - 18px);
+	border-left: 2px dashed #6cb3dc;
+}
+.treeItem[level_index="0"].treeHeightLine::after{
+	top:25px;
+}
+.treeItem .itemControl::before{
+	content: '';
+	position: absolute;
+	top: 7px;
+    left:-120px;
+	width:118px;
+	height:1px;
+	border-top: 2px dashed #6cb3dc;
+}
+.treeItem[level_index="0"]>.itemTitle>.itemControl::before{
+	border-top:none;
+}
+.treeItem:last-child::after{
+	/* border-left: none; */
+}
+
+
+	</style>
+</head>
+<body>
+	<div class="tree">
+		<div class="treeCont">
+		</div>
+	</div>
+</body>
+</html>
+<script type="text/javascript" src="jquery.min.js"></script>
+<script type="text/javascript" src="tree.js"></script>
+<script type="text/javascript">
+	var $treeCont = $('.treeCont');
+	var data = [
+		{
+			title:"总平台",
+			subTitle:'共10个院校',
+//			subImg:'{$STATIC_URL}/front/imgs/images/open.png',
+			datas:[
+				{
+					title:"职豆豆大学",
+					subTitle:'共30个系',
+					subImg:'',
+					datas:[
+						{
+							title:"计算机系",
+							subTitle:'共10个专业',
+							datas:[
+								{
+									title:"计算机信息技术",
+									subTitle:'共2个班',
+//									subImg:'{$STATIC_URL}/front/imgs/images/hide.png',
+									datas:[
+										{
+											title:"1203班",
+											subTitle:'共50人',
+											subImg:'{$STATIC_URL}/front/imgs/images/treebutton.png',
+											datas:[]
+										},	
+										{
+											title:"1203班",
+											subTitle:'共50人',
+											subImg:'{$STATIC_URL}/front/imgs/images/treebutton.png',
+											datas:[]
+										},											
+									]
+								}							
+							]
+						},
+//						{
+//							title:"假数据1",
+//							subTitle:'4444',
+//							subImg:'{$STATIC_URL}/front/imgs/images/hide.png',
+//							datas:[]
+//						}
+					]
+				},
+				{
+
+					title:"职豆豆大学",
+					subTitle:'共30个系',
+					subImg:'',
+					datas:[
+						{
+							title:"计算机系",
+							subTitle:'共10个专业',
+							datas:[
+								{
+									title:"计算机信息技术",
+									subTitle:'共2个班',
+//									subImg:'{$STATIC_URL}/front/imgs/images/hide.png',
+									datas:[
+										{
+											title:"1203班",
+											subTitle:'共50人',
+											subImg:'{$STATIC_URL}/front/imgs/images/treebutton.png',
+											datas:[]
+										},	
+										{
+											title:"1203班",
+											subTitle:'共50人',
+											subImg:'{$STATIC_URL}/front/imgs/images/treebutton.png',
+											datas:[]
+										},											
+									]
+								}							
+							]
+						},
+
+					]
+				
+				},
+
+			]
+		},
+//		{
+//			title:"商品管理",
+//			datas:[
+//				{
+//					title:"机构管理",
+//					datas:[
+//						{
+//							title:"部分快捷",
+//							datas:[]
+//						},
+//						{
+//							title:"员工管理",
+//							datas:[]
+//						}
+//					]
+//				},
+//				{
+//					title:"部门管理1",
+//					datas:[]
+//				},
+//				{
+//					title:"员工管理1",
+//					datas:[]
+//				}
+//			]
+//		}
+	]
+	var tree = new Tree(data);
+	tree.createTree($treeCont);
+	$(document).off('click.itemIcon').on('click.itemIcon','.treeItem .itemIcon',function(e){
+		var $target = $(e.currentTarget);
+		var $treeItem = $target.closest('.treeItem');
+		var $treeLevlCont = $target.closest('.itemTitle').siblings('.treeLevlCont');
+		// 展开收起
+		if ($target.hasClass('itemControl')) {
+			$target.hasClass('itemShow')?$treeLevlCont.removeClass('hide'):$treeLevlCont.addClass('hide')
+			$target.toggleClass('itemShow').toggleClass('itemHide')
+		
+			//线的监听
+			if($treeItem.hasClass('levelNochild')){
+					return;
+			}
+			
+			var $item = null;
+			var flag = false;
+			if($treeItem.hasClass('levelLastItem')){
+				$item = $treeItem;
+				flag = true;
+				if($target.hasClass('itemHide')){
+					$treeItem.addClass('treeHeightLine');
+				}else{
+					$treeItem.removeClass('treeHeightLine');
+				}
+			}else{
+				$item = $treeItem.siblings('.treeItem.levelLastItem');
+			}
+			changeLineHeight($item,$treeItem,$treeLevlCont,flag)
+		
+		}else{
+			// 监听选中不选中
+			if ($target.is(':checked')) {
+				// 选中时候调用
+			}else{
+				// 不选中时候
+			}
+		}
+
+	});
+
+
+	function changeLineHeight($treeItem,$targetTree,$treeLevlCont,flag){
+		var $targetIcon = $treeItem.children('.itemTitle').children('.itemControl');
+		var targetTop = $targetIcon.offset().top;
+		var index = $treeItem.attr('level_index')+"";
+		var levelIndex = parseInt(index)+1;
+		if(flag){
+			var $lastLevel = $treeLevlCont.find('.treeItem.levelLastItem[level_index='+levelIndex+']');
+			if($lastLevel && $lastLevel.length){
+				var $itemControl = $lastLevel.children('.itemTitle').children('.itemControl');
+				if($itemControl && $itemControl.length){
+					var top = $itemControl.offset().top -targetTop - 10;
+					$('<style>.treeItem.levelLastItem[level_index="'+index+'"]::after{height:'+top+'px}</style>').appendTo('head');
+				}
+			}
+
+			
+		}else{
+			
+			var $parents = $targetTree.closest('[level_index=0]');
+			var $parentIcon = $parents.children('.itemTitle').children('.itemControl');
+			var tarTop = $parentIcon.offset().top;
+			var index = $parents.attr('level_index')+"";
+			var top = targetTop -tarTop - 10;
+			$('<style>.treeItem.levelLastItem[level_index="'+index+'"]::after{height:'+top+'px}</style>').appendTo('head');
+			
+		}
+		
+	}
+</script>
